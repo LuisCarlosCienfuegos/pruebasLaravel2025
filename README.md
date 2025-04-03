@@ -64,3 +64,23 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+### para correr la aplicacion #######################
+
+1. para descargar el repositorio de github, esta como publico:
+-   posicionarse en la carpeta : C:\xampp\htdocs\pruebasRepositorio\
+con powershell
+-   git clone https://github.com/LuisCarlosCienfuegos/pruebasLaravel2025
+-    cd repositorioLaravel
+-   composer install
+-   php artisan migrate
+para poder correr el npm install, debemos de tener node.js(https://nodejs.org/es)
+-   npm install
+-   npm run dev
+
+para instalar boostrap: 
+- composer require laravel/ui 
+- php artisan ui bootstrap
+
