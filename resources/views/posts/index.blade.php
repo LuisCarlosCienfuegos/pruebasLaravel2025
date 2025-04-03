@@ -1,14 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.app')  <!-- Hereda de la plantilla base (creo de resources\views\layouts\app.blade.php )-->
 
-@section('title', 'Posts')
+@section('title', 'Posts') <!-- Define el título -->
 
-@section('content')
+@section('content')  <!-- Define el contenido para @yield('content') -->
     <div class="card">
+            <!-- Contenido HTML con Bootstrap -->
         <div class="card-header">
             <h1>Posts</h1>
         </div>
         <div class="card-body">
-            <a href="{{ route('posts.create') }}" class="btn btn-primary">Crear nuevo post</a>
+            <a href="{{ route('posts.create') }}" class="btn btn-primary">Crear nuevo post</a>  <!-- Genera la URL -->
 
             <div id="posts-list" class="mt-4">
                 <!-- Aquí se mostrarán los posts desde sessionStorage -->

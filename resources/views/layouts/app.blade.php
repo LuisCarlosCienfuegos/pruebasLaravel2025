@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container mt-4">
-        @yield('content')
+        @yield('content')  <!-- Aquí se inyectará el contenido de cada vista -->
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
     <script>

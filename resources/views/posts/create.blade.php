@@ -9,7 +9,7 @@
         </div>
         <div class="card-body">
             <form id="post-form">
-                @csrf
+                @csrf  <!-- Token de seguridad de Laravel (aunque no lo usemos aquí) -->
                 <div class="mb-3">
                     <label for="title" class="form-label">Título</label>
                     <input type="text" class="form-control" id="title" name="title" required>
@@ -37,9 +37,11 @@
             const posts = getFromSession('posts') || [];
             posts.push(post);
             saveToSession('posts', posts);
-
+            //algo asi se debe guardar
+            //{posts: '[{"id":1743698135895,"title":"holis","content":"siwaaaaa"}]', length: 1}
             // Redirigir al listado
-            window.location.href = "{{ route('posts.index') }}";
+
+            window.location.href = "{{ route('posts.index') }}";//este es como el return hacia el index
         });
     </script>
 @endsection
