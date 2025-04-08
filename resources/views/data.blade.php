@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
         .header-gradient {
             background: linear-gradient(135deg, #cb1111 0%, #fc2525 100%);
         }
+
         .avatar {
             width: 40px;
             height: 40px;
@@ -23,17 +25,20 @@
             font-weight: bold;
             color: #6c757d;
         }
+
         .table-container {
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             overflow: hidden;
         }
+
         .table thead th {
             background-color: #343a40;
             color: white;
         }
     </style>
 </head>
+
 <body>
     {{-- <div class="header-gradient text-white py-4 mb-4">
         <div class="container">
@@ -42,7 +47,7 @@
     </div> --}}
 
     <div class="container">
-        @if(session('success'))
+        @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show">
                 {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -96,7 +101,7 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->phone ?? 'N/A' }}</td>
                                 {{-- <td>
-                                    @if($user->email_verified_at)
+                                    @if ($user->email_verified_at)
                                         <span class="badge bg-success">
                                             <i class="fas fa-check-circle me-1"></i> Verificado
                                         </span>
@@ -134,7 +139,7 @@
                 </table>
             </div>
 
-            @if($users->hasPages())
+            {{-- @if ($users->hasPages())
                 <div class="d-flex justify-content-between align-items-center p-3 bg-light">
                     <div>
                         Mostrando {{ $users->firstItem() }} a {{ $users->lastItem() }} de {{ $users->total() }} registros
@@ -143,6 +148,39 @@
                         {{ $users->links() }}
                     </div>
                 </div>
+            @endif --}}
+            @if ($users->hasPages())
+                <div class="d-flex justify-content-between align-items-center p-3 bg-light">
+                    <div class="text-muted">
+                        Mostrando {{ $users->firstItem() }} a {{ $users->lastItem() }} de {{ $users->total() }}
+                        registros
+                    </div>
+
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination pagination-sm mb-0">
+                            {{-- Botón Anterior --}}
+                            <li class="page-item {{ $users->onFirstPage() ? 'disabled' : '' }}">
+                                <a class="page-link" href="{{ $users->previousPageUrl() }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+
+                            {{-- Números de página --}}
+                            @foreach ($users->getUrlRange(max(1, $users->currentPage() - 2), min($users->lastPage(), $users->currentPage() + 2)) as $page => $url)
+                                <li class="page-item {{ $page == $users->currentPage() ? 'active' : '' }}">
+                                    <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                                </li>
+                            @endforeach
+
+                            {{-- Botón Siguiente --}}
+                            <li class="page-item {{ !$users->hasMorePages() ? 'disabled' : '' }}">
+                                <a class="page-link" href="{{ $users->nextPageUrl() }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             @endif
         </div>
     </div>
@@ -150,4 +188,5 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
