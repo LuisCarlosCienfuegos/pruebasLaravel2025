@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .header-gradient {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            background: linear-gradient(135deg, #cb1111 0%, #fc2525 100%);
         }
         .avatar {
             width: 40px;
@@ -75,9 +75,9 @@
                             <th>Nombre Completo</th>
                             <th>Email</th>
                             <th>Teléfono</th>
-                            <th>Estado</th>
+                            {{-- <th>Estado</th> --}}
                             <th>Registro</th>
-                            <th>Acciones</th>
+                            {{-- <th>Acciones</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -95,7 +95,7 @@
                                 <td>{{ $user->name }} {{ $user->lastname }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->phone ?? 'N/A' }}</td>
-                                <td>
+                                {{-- <td>
                                     @if($user->email_verified_at)
                                         <span class="badge bg-success">
                                             <i class="fas fa-check-circle me-1"></i> Verificado
@@ -105,9 +105,9 @@
                                             <i class="fas fa-exclamation-circle me-1"></i> Pendiente
                                         </span>
                                     @endif
-                                </td>
+                                </td> --}}
                                 <td>{{ $user->created_at->format('d/m/Y') }}</td>
-                                <td>
+                                {{-- <td>
                                     <div class="btn-group">
                                         <a href="{{ route('users.show', $user->id) }}" class="btn btn-sm btn-primary">
                                             <i class="fas fa-eye"></i>
@@ -123,7 +123,7 @@
                                             </button>
                                         </form>
                                     </div>
-                                </td>
+                                </td> --}}
                             </tr>
                         @empty
                             <tr>
