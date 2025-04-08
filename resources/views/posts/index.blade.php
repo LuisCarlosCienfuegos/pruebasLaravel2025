@@ -24,6 +24,7 @@
 
             if (posts.length === 0) {
                 postsList.innerHTML = '<p>No hay posts aún.</p>';
+                return;
             } else {
                 let html = '<ul class="list-group">';
                 posts.forEach(post => {

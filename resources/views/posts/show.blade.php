@@ -14,6 +14,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            debugger;
             const postId = window.location.pathname.split('/').pop();
             const posts = getFromSession('posts') || [];
             const post = posts.find(p => p.id == postId);
@@ -30,5 +31,7 @@
                 postDetails.innerHTML = '<p>Post no encontrado</p>';
             }
         });
+
+
     </script>
 @endsection
