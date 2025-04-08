@@ -35,11 +35,11 @@
     </style>
 </head>
 <body>
-    <div class="header-gradient text-white py-4 mb-4">
+    {{-- <div class="header-gradient text-white py-4 mb-4">
         <div class="container">
             <h1><i class="fas fa-users me-2"></i> Gestión de Usuarios</h1>
         </div>
-    </div>
+    </div> --}}
 
     <div class="container">
         @if(session('success'))
@@ -50,18 +50,18 @@
         @endif
 
         <div class="d-flex justify-content-between mb-4">
-            <a href="{{ route('users.create') }}" class="btn btn-primary">
+            {{-- <a href="{{ route('users.create') }}" class="btn btn-primary">
                 <i class="fas fa-plus me-2"></i> Nuevo Usuario
-            </a>
+            </a> --}}
 
             <form action="{{ route('users.generateTestUsers') }}" method="POST" class="d-flex">
                 @csrf
-                <div class="input-group">
+                {{-- <div class="input-group">
                     <input type="number" name="count" class="form-control" placeholder="Cantidad" min="1" max="100" value="10">
                     <button type="submit" class="btn btn-success">
                         <i class="fas fa-magic me-2"></i> Generar Datos
                     </button>
-                </div>
+                </div> --}}
             </form>
         </div>
 
